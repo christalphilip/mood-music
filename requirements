@@ -2,3 +2,5 @@ torch
 transformers
 soundfile
 nltk
+fastapi
+uvicorn
