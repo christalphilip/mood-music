@@ -37,6 +37,15 @@ uvicorn app:app --reload
 ```
 Open in browser: http://127.0.0.1:8000/docs to test the /generate_music/ and /download/{filename} endpoints.
 
+(Optional) Expose your local backend using ngrok
+If you want to access your backend API from outside your local network (e.g., for demo or mobile testing), use ngrok to create a public URL:
+1. Download and install ngrok if you haven't yet.
+2. Run ngrok to forward port 8000:
+    ```bash
+    ngrok http 8000
+    ```
+3. ngrok will display a public HTTPS URL (e.g., https://abc123.ngrok.io) — use this URL in your Android app to connect to your backend remotely.
+
 ### 5. Android App (Frontend)
 - Located in: android_app/
 - Built with Kotlin + Android Studio
