@@ -3,3 +3,11 @@ __pycache__/
 *.wav
 .DS_Store
 .env
+
+# Android-specific
+android/.gradle/
+android/.idea/
+android/local.properties
+android/**/*.iml
+android/build/
+android/app/build/
