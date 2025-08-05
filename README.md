@@ -1,14 +1,28 @@
-# Mood Music Generator 
+# Mood Music Generator 🎵
+Generate custom music based on your mood using Meta's MusicGen and natural language prompts!
 
-Generate music based on your mood using Meta's MusicGen and natural language prompts!
+## Overview
+Mood Music Generator is a two‑part project:
+1. **Python CLI + FastAPI Backend** — Fully functional, generates music clips from mood prompts using NLP and MusicGen.
+2. **Android App** — An in‑progress mobile extension that integrates with the backend to provide an on‑the‑go music generation experience.
+
+This project demonstrates skills in **natural language processing, transformer-based generative AI, Android development, and API integration**.
 
 ## Features
-- Detects the mood you type (e.g., "joyful", "melancholy", etc.)
-- Finds the closest match using WordNet synonyms
-- Generates a custom music clip using a transformer model
-- Android app frontend to input mood and stream/download audio
-- FastAPI backend to serve or generate audio
 
+### Fully Functional (Python CLI + FastAPI Backend)
+- Detects the mood you type (e.g., "joyful", "melancholy")
+- Finds the closest match using WordNet synonyms
+- Generates a custom music clip using Meta’s MusicGen transformer model
+- Saves generated audio as `.wav` files for local playback
+- REST API endpoints for generating and downloading audio
+
+### In Progress (Android App)
+- Mood selection UI **fully working** with backend API integration
+- Basic audio playback of generated music
+- Connects to local or ngrok‑exposed backend
+- **Experimental:** Initial work on real‑time audio streaming (partial implementation)
+- Planned: optimize generation speed, improve playback reliability, enhance error handling
 
 ## Getting Started
 
@@ -35,21 +49,16 @@ You will be prompted to enter your mood. The generated audio will be saved as a 
 ```bash
 uvicorn app:app --reload
 ```
-Open in browser: http://127.0.0.1:8000/docs to test the /generate_music/ and /download/{filename} endpoints.
+Test endpoints in your browser: http://127.0.0.1:8000/docs
 
 (Optional) Expose your local backend using ngrok
-If you want to access your backend API from outside your local network (e.g., for demo or mobile testing), use ngrok to create a public URL:
-1. Download and install ngrok if you haven't yet.
-2. Run ngrok to forward port 8000:
-    ```bash
+```bash
     ngrok http 8000
-    ```
-3. ngrok will display a public HTTPS URL (e.g., https://abc123.ngrok.io) — use this URL in your Android app to connect to your backend remotely.
-
+```
 ### 5. Android App (Frontend)
 - Located in: android_app/
 - Built with Kotlin + Android Studio
-- Sends mood to FastAPI backend and streams/generated music
+- Sends mood to FastAPI backend and plays generated audio
 
 Make sure backend is running locally or deployed
 
@@ -59,18 +68,22 @@ Setup
 3. Build and run on emulator or physical device
 
 
-### Project Structure
+## Project Structure
 mood-music/
-├── android_app/                 # Android frontend app
-│   └── MainActivity.kt          # Main app logic
-├── app.py                       # FastAPI backend
-├── mood_music.py                # CLI tool
-├── generated/                   # Output .wav files
-├── requirements.txt
+├── android_app/                 
+│   └── MainActivity.kt          
+├── app.py                      
+├── mood_music.py                
+├── generated/                  
 ├── README.md
 ├── LICENSE
 └── .gitignore
-            
+
+## Project Status
+- Python CLI + FastAPI backend: Fully functional and stable
+- Android app: In‑progress extension with working UI, API calls, and basic playback
+- Experimental: Partial implementation of real‑time audio streaming
+- Next steps: Optimize CPU generation time, implement full streaming, improve playback handling, add robust error feedback
 
 ## License
 
